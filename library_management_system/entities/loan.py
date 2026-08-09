@@ -11,5 +11,5 @@ class Loan:
 
     def close(self)->None:
         if self.return_date is not None:
-            raise Exception("Loan is already closed.")
+            raise ValueError("Loan is already closed.")
         self.return_date = datetime.now()

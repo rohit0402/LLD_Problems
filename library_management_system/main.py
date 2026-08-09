@@ -42,7 +42,7 @@ def main():
                 print(
                     f"\n[Success] Added '{title}' with {num_copies} copies."
                 )
-            except Exception as e:
+            except ValueError as e:
                 print(f"\n[Error]: {e}")
 
         elif choice == "2":
@@ -53,7 +53,7 @@ def main():
                 member = Member(member_id, name)
                 library.add_member(member)
                 print(f"\n[Success] Registered member '{name}'.")
-            except Exception as e:
+            except ValueError as e:
                 print(f"\n[Error]: {e}")
 
         elif choice == "3":
@@ -68,7 +68,7 @@ def main():
                 print(
                     f"\n[Success] Borrowed copy '{loan.book_copy.copy_id}' under Loan ID '{loan_id}'."
                 )
-            except Exception as e:
+            except ValueError as e:
                 print(f"\n[Error]: {e}")
 
         elif choice == "4":
@@ -79,7 +79,7 @@ def main():
                 print(
                     f"\n[Success] Book returned successfully. Total Fine: ₹{fine}"
                 )
-            except Exception as e:
+            except ValueError as e:
                 print(f"\n[Error]: {e}")
 
         elif choice == "5":

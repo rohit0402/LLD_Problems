@@ -10,10 +10,10 @@ class BookCopy:
 
     def borrow(self) -> None:
         if not self.is_available():
-            raise Exception("Book copy is not available for borrowing.")
+            raise ValueError("Book copy is not available for borrowing.")
         self.status = BookStatus.BORROWED
 
     def return_book(self)->None:
         if self.is_available():
-            raise Exception("Book copy is not borrowed.")
+            raise ValueError("Book copy is not borrowed.")
         self.status = BookStatus.AVAILABLE

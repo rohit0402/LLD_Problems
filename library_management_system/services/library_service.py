@@ -26,17 +26,17 @@ class Library:
 
     def borrow_book(self,member_id:str,book_id:str,loan_id:str)->Loan:
         if member_id not in self.mebers:
-            raise Exception("Member not found.")
+            raise ValueError("Member not found.")
 
         if book_id not in self.books:
-            raise Exception("Book not found.")
+            raise ValueError("Book not found.")
 
         member=self.mebers[member_id]
         book=self.books[book_id]
         copy=book.get_available_copies()
 
         if copy is None:
-            raise Exception("No available copies.")
+            raise ValueError("No available copies.")
 
         copy.borrow()
         loan=Loan(loan_id,member,copy)
@@ -45,11 +45,11 @@ class Library:
 
     def return_book(self,loan_id:str)->float:
         if loan_id not in self.loans:
-            raise Exception("Loan not found.")
+            raise ValueError("Loan not found.")
 
         loan=self.loans[loan_id]
         if loan.return_date is not None:
-            raise Exception("Loan is already closed.")
+            raise ValueError("Loan is already closed.")
 
         loan.close()
 
